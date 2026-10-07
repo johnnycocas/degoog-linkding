@@ -2,6 +2,11 @@ type Settings = {
   linkding_url: string;
   api_token: string;
   limit: number;
+  position:
+    | "above-results"
+    | "below-results"
+    | "above-sidebar"
+    | "below-sidebar";
 };
 
 type Bookmark = {
@@ -97,11 +102,24 @@ export const slot = {
   isClientExposed: false,
 
   async configure(newSettings: Record<string, unknown>) {
-    this.position = String(
+    const limit = Number(newSettings.limit ?? 5);
+
+    const validPositions = [
+      "above-results",
+      "below-results",
+      "above-sidebar",
+      "below-sidebar",
+    ] as const;
+
+    const requestedPosition = String(
       newSettings.position ?? "above-sidebar"
     );
 
-    const limit = Number(newSettings.limit ?? 5);
+    const position = validPositions.includes(
+      requestedPosition as (typeof validPositions)[number]
+    )
+      ? (requestedPosition as (typeof validPositions)[number])
+      : "above-sidebar";
 
     settings = {
       linkding_url: String(
@@ -114,7 +132,10 @@ export const slot = {
         Number.isFinite(limit) && limit > 0
           ? Math.min(Math.floor(limit), 50)
           : 5,
+      position,
     };
+
+	slot.position = position;
   },
 
   async trigger(query: string): Promise<boolean> {
