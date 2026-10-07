@@ -73,6 +73,18 @@ export const plugin = {
       placeholder: "5",
       description: "Maximum number of matching bookmarks to display.",
     },
+    {
+      key: "position",
+      label: "Position",
+      type: "select",
+      options: [
+        { value: "above-results", label: "Above search results" },
+        { value: "below-results", label: "Below search results" },
+        { value: "above-sidebar", label: "Above sidebar" },
+        { value: "below-sidebar", label: "Below sidebar" }
+      ],
+      default: "above-sidebar"
+    },
   ],
 };
 
@@ -85,6 +97,10 @@ export const slot = {
   isClientExposed: false,
 
   async configure(newSettings: Record<string, unknown>) {
+    this.position = String(
+      newSettings.position ?? "above-sidebar"
+    );
+
     const limit = Number(newSettings.limit ?? 5);
 
     settings = {
