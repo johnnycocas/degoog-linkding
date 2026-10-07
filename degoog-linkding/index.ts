@@ -79,7 +79,7 @@ export const plugin = {
 export const slot = {
   id: "degoog-linkding",
   name: "Linkding",
-  position: "above-results",
+  position: "above-sidebar",
 
   // Everything happens server-side through context.fetch.
   isClientExposed: false,
