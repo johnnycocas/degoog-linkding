@@ -23,8 +23,8 @@ type LinkdingResponse = {
 };
 
 let settings: Settings = {
-  linkding_url: "<URL_GOES_HERE>",
-  api_token: "<LINKDING_API_TOKEN_GOES_HERE>",
+  linkding_url: "",
+  api_token: "",
   limit: 5,
 };
 
@@ -51,7 +51,7 @@ export const plugin = {
       key: "linkding_url",
       label: "Linkding URL",
       type: "text",
-      default: "<URL_GOES_HERE>",
+      default: "",
       placeholder: "http://linkding:9090",
       description:
         "The Linkding URL reachable from the DeGoog container. Do not include /api/bookmarks/.",
@@ -61,7 +61,7 @@ export const plugin = {
       label: "Linkding API token",
       type: "password",
       default: "",
-      placeholder: "<LINKDING_API_TOKEN_GOES_HERE>",
+      placeholder: "linkding API token",
       description:
         "Your Linkding API token. It is kept server-side and is never sent to the browser.",
     },
@@ -89,7 +89,7 @@ export const slot = {
 
     settings = {
       linkding_url: String(
-        newSettings.linkding_url ?? "<URL_GOES_HERE>"
+        newSettings.linkding_url ?? ""
       ),
       api_token: String(
         newSettings.api_token ?? ""
@@ -104,7 +104,7 @@ export const slot = {
   async trigger(query: string): Promise<boolean> {
     return (
       query.trim().length > 0 &&
-      settings.linkding_url !== "<URL_GOES_HERE>" &&
+      settings.linkding_url !== "" &&
       settings.api_token.length > 0
     );
   },
@@ -139,7 +139,7 @@ export const slot = {
 
     if (
       !settings.linkding_url ||
-      settings.linkding_url === "<URL_GOES_HERE>" ||
+      settings.linkding_url === "" ||
       !settings.api_token
     ) {
       return { html: "" };
