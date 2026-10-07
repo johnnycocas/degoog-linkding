@@ -1,14 +1,14 @@
 {
-  "name": "degoog-linkding",
-  "description": "Shows matching Linkding bookmarks above DeGoog search results.",
+  "name": "degoog-plugins",
+  "description": "Johnny's degoog plugins",
   "repo-image": "some image",
   "author": "Johnny Cocas",
   "plugins": [
     {
       "path": "degoog-linkding",
       "name": "Linkding",
-      "description": "Shows matching Linkding bookmarks above DeGoog search results.",
-      "version": "1.0.0",
+      "description": "Shows matching linkding bookmarks next to degoog search results",
+      "version": "1.0.1",
       "type": "slot",
       "minDegoogVersion": "1.0.0"
     }
