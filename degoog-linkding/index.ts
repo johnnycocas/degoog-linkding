@@ -83,10 +83,16 @@ export const plugin = {
       label: "Position",
       type: "select",
       options: [
-        { value: "above-results", label: "Above search results" },
-        { value: "below-results", label: "Below search results" },
-        { value: "above-sidebar", label: "Above sidebar" },
-        { value: "below-sidebar", label: "Below sidebar" }
+        "above-results",
+        "below-results",
+        "above-sidebar",
+        "below-sidebar"
+      ],
+      optionLabels: [
+        "Above search results",
+        "Below search results",
+        "Above sidebar",
+        "Below sidebar"
       ],
       default: "above-sidebar"
     },
