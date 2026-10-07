@@ -2,6 +2,14 @@
 
 A repository for degoog plugins I use personally.
 
+To install any of the plugins in here, go to `Settings > Store`, then `Add Repository`, and paste
+```
+https://github.com/johnnycocas/degoog-plugins.git
+```
+Don't forget to hit the `+` next to the url.
+
+Then look for the plugin you wish to install and install it.
+
 ## degoog-linkding
 
 <img width="1358" height="929" alt="image" src="https://github.com/user-attachments/assets/a9772272-e267-4044-aa58-424833a75936" />
