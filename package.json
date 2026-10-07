@@ -1,0 +1,16 @@
+{
+  "name": "degoog-linkding",
+  "description": "Shows matching Linkding bookmarks above DeGoog search results.",
+  "repo-image": "some image",
+  "author": "Johnny Cocas",
+  "plugins": [
+    {
+      "path": ".",
+      "name": "Linkding",
+      "description": "Shows matching Linkding bookmarks above DeGoog search results.",
+      "version": "1.0.0",
+      "type": "slot",
+      "minDegoogVersion": "1.0.0"
+    }
+  ]
+}
